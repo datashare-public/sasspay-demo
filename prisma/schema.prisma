@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model customer {
+  id          Int           @id @default(autoincrement())
+  name        String        @db.VarChar(255)
+  email       String        @db.VarChar(255)
+  user_id      Int
+  user        user          @relation(fields: [user_id], references: [id])
+  transactions transaction[]
+}
+
+model product {
+  id           Int           @id @default(autoincrement())
+  name         String        @db.VarChar(255)
+  user_id       Int
+  user         user          @relation(fields: [user_id], references: [id])
+  transactions transaction[]
+}
+
+model transaction {
+  id          Int      @id @default(autoincrement())
+  created_at  DateTime @default(now())
+  description String   @db.VarChar(255)
+  amount      Decimal  @db.Decimal(20,2)
+
+  user_id Int
+  user   user @relation(fields: [user_id], references: [id])
+
+  product_id Int
+  product   product @relation(fields: [product_id], references: [id])
+
+  customer_id Int?
+  customer   customer? @relation(fields: [customer_id], references: [id])
+}
+
+model user {
+  id           Int           @id @default(autoincrement())
+  email        String        @unique
+  name         String?
+  transactions transaction[]
+  products     product[]
+  customers    customer[]
+}

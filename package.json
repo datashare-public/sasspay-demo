@@ -1,0 +1,33 @@
+{
+  "name": "sasspay-demo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 8123",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prisma-migrate": "prisma migrate dev --name",
+    "prisma-format": "prisma format",
+    "load-data": "node --experimental-json-modules src/loader.mjs"
+  },
+  "dependencies": {
+    "@datashare/react": "^0.0.7-development",
+    "@emotion/react": "^11.11.1",
+    "@mantine/core": "^6.0.19",
+    "@mantine/hooks": "^6.0.19",
+    "@mantine/prism": "^6.0.19",
+    "@prisma/client": "^5.1.1",
+    "@tabler/icons-react": "^2.32.0",
+    "@types/node": "20.4.2",
+    "@types/react": "18.2.15",
+    "@types/react-dom": "18.2.7",
+    "eslint": "8.45.0",
+    "eslint-config-next": "13.4.11",
+    "next": "13.4.18",
+    "prisma": "^5.1.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "5.1.6"
+  }
+}
