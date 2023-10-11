@@ -2,17 +2,18 @@
   "name": "sasspay-demo",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
+    "scripts": {
     "dev": "next dev -p 8123",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prisma-migrate": "prisma migrate dev --name",
+    "prisma-migrate": "prisma migrate dev --create-only",
+    "prisma-migrate-prod": "prisma migrate deploy",
     "prisma-format": "prisma format",
     "load-data": "node --experimental-json-modules src/loader.mjs"
   },
   "dependencies": {
-    "@datashare/react": "^0.0.7-development",
+    "@datashare/react": "^0.0.13",
     "@emotion/react": "^11.11.1",
     "@mantine/core": "^6.0.19",
     "@mantine/hooks": "^6.0.19",

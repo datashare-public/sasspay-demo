@@ -1,10 +1,5 @@
 import "@/styles/globals.css";
-import {
-  Header,
-  Flex,
-  MantineProvider,
-  Box,
-} from "@mantine/core";
+import { Header, Flex, MantineProvider, Box } from "@mantine/core";
 import type { AppProps } from "next/app";
 import { DataShareProvider } from "@datashare/react";
 import Image from "next/image";
@@ -39,14 +34,17 @@ const MyApp = ({ Component, pageProps }: MyAppProps) => {
         },
         borderWidth: 0,
       }}
-      host="https://sasspay.datashare.co"
+      host={process.env.NEXT_PUBLIC_DATASHARE_URL}
     >
       <MantineProvider
         theme={{ fontFamily: "sans-serif" }}
         withGlobalStyles
         withNormalizeCSS
       >
-        <Header height={56} sx={{ backgroundColor: "rgb(90,150,110)", borderBottom: "none" }}>
+        <Header
+          height={56}
+          sx={{ backgroundColor: "rgb(90,150,110)", borderBottom: "none" }}
+        >
           <Flex
             sx={{
               height: "100%",
@@ -76,7 +74,12 @@ const MyApp = ({ Component, pageProps }: MyAppProps) => {
         >
           <Component {...pageProps} />
           <Flex
-            sx={{ position: "fixed", bottom: 20, width: "100%", zIndex: 100000000000 }}
+            sx={{
+              position: "fixed",
+              bottom: 20,
+              width: "100%",
+              zIndex: 100000000000,
+            }}
             justify="center"
           >
             <Box

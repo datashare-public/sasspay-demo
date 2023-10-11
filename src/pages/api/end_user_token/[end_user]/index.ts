@@ -10,7 +10,7 @@ export default async function endUserToken(
   const endUserToken = await createEndUserToken({
     privateKey: PRIVATE_KEY,
     endUserId: req.query.end_user as string,
-    organizationId: "391b95c4-b379-4f1f-bcbb-5fbaf3e2e997",
+    organizationId: process.env.DATASHARE_ORGANIZATION_ID as string,
   });
   res.json({ endUserToken });
 }

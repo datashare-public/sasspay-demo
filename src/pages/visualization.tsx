@@ -11,7 +11,7 @@ export default function Home() {
       sx={{ maxWidth: 1200, marginRight: "auto", marginLeft: "auto" }}
     >
       <Box sx={{ width: "100%", height: 400 }}>
-        <DataShareVisualization visualizationId="f9c1bbd6-e668-4e3b-ada4-b45a2425c5f5" />
+        <DataShareVisualization visualizationId="4f658080-7647-4377-9a85-b0bc1ba09e71" />
       </Box>
       <div style={{ width: "100%", height: 1, backgroundColor: "#ccc" }} />
       <Flex p="xl" gap="md" direction="column">
